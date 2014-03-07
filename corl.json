@@ -2,11 +2,19 @@
   "provisioners": {
     "puppetnode": {
       "coralnexus::drupal": {
-        "modules": {
-          "php": "github:::coralnexus/puppet-php",
-          "apache": "github:::coralnexus/puppet-apache",
-          "percona": "github:::coralnexus/puppet-percona",
-          "drupal": "github:::coralnexus/puppet-drupal"
+        "profiles": {
+          "apache_drupal": {
+            "modules": {
+              "php": "github:::coralnexus/puppet-php",
+              "apache": "github:::coralnexus/puppet-apache",
+              "drupal": "github:::coralnexus/puppet-drupal"
+            }
+          },
+          "percona_server": {
+            "modules": {
+              "percona": "github:::coralnexus/puppet-percona"
+            }
+          }
         }
       }
     }
