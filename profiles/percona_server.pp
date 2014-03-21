@@ -13,8 +13,7 @@ class coralnexus::drupal::profile::percona_server {
   # Required systems
 
   class { 'percona':
-    server  => true,
-    require => Anchor[$base_name]
+    server  => true
   }
 
   #-----------------------------------------------------------------------------
