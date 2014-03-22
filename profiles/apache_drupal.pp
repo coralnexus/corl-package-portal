@@ -121,7 +121,8 @@ define coralnexus::drupal::profile::apache_drupal::site (
     pcre_backtrack_limit    => $pcre_backtrack_limit,
     pcre_recursion_limit    => $pcre_recursion_limit,
     ini_settings            => $ini_settings,
-    conf                    => $conf
+    conf                    => $conf,
+    require                 => File['apache_web_home']
   }
 
   #---
