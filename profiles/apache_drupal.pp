@@ -89,7 +89,19 @@ define coralnexus::drupal::profile::apache_drupal::site (
   $apache_rewrite_log_level = $apache::params::rewrite_log_level
 ) {
 
-  $drupal_home_dir = "${apache::params::web_home}/${domain}"
+  $drupal_home_dir = "${apache::params::web_home}/drupal/${domain}"
+
+  #---
+
+  corl::file { $name:
+    resources => {
+      drupal_dir => {
+        path    => "${apache::params::web_home}/drupal",
+        ensure  => 'directory',
+        require => File['apache_web_home']
+      }
+    }
+  }
 
   #---
 
@@ -123,7 +135,7 @@ define coralnexus::drupal::profile::apache_drupal::site (
     pcre_recursion_limit    => $pcre_recursion_limit,
     ini_settings            => $ini_settings,
     conf                    => $conf,
-    require                 => File['apache_web_home']
+    require                 => Corl::File[$name]
   }
 
   #---
