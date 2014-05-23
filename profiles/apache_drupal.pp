@@ -4,7 +4,7 @@
 class coralnexus::drupal::profile::apache_drupal {
 
   $base_name = 'coralnexus_apache_drupal'
-  anchor { $base_name: require => Class['corl'] }
+  anchor { $base_name: }
 
   #-----------------------------------------------------------------------------
   # Properties
@@ -18,7 +18,7 @@ class coralnexus::drupal::profile::apache_drupal {
   include php::apache
   include php::mod::mysql
 
-  class { 'drupal': require => [ Class['apache'], Class['php'], Class['php::apache'] ] }
+  class { 'drupal': require => Class['php'] }
 
   #---
 
