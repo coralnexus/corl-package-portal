@@ -1,5 +1,5 @@
 
-class coralnexus::drupal::default::percona {
+class coralnexus::portal::default::percona {
 
   $configurations = {
     "mysqld" => {

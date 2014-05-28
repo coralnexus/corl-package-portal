@@ -1,24 +1,110 @@
 {
   "provisioners": {
     "puppetnode": {
-      "coralnexus::drupal": {
+      "coralnexus::portal": {
+        "packages": {
+          "environment": {
+            "production": {
+              "coralnexus::core": "github:::coralnexus/corl-package-core[a99ac24cdd05337ad1efac83eabe86fca9de37ba]"
+            },
+            "qa": {
+              "use": "production"
+            },
+            "default": {
+              "coralnexus::core": "github:::coralnexus/corl-package-core"
+            }
+          }
+        },
         "profiles": {
+          "apache_server": {
+            "environment": {
+              "production": {
+                "modules": {
+                  "apache": "github:::coralnexus/puppet-apache[b76804a9e76fd6ed78e4e584178cc1b6c8e1eecf]"
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "apache": "github:::coralnexus/puppet-apache"
+                }
+              }
+            }
+          },
+          "php": {
+            "environment": {
+              "production": {
+                "modules": {
+                  "php": "github:::coralnexus/puppet-php[1875d16775ffcebcab56ccd74f0806d1d05116a2]"  
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "php": "github:::coralnexus/puppet-php"  
+                }
+              }
+            }
+          },
+          "apache_static": {
+            "extend": "apache_server"
+          },
           "apache_drupal": {
-            "modules": {
-              "php": "github:::coralnexus/puppet-php",
-              "apache": "github:::coralnexus/puppet-apache",
-              "drupal": "github:::coralnexus/puppet-drupal"
+            "extend": [ "apache_server", "php" ],
+            "environment": {
+              "production": {
+                "modules": {
+                  "drupal": "github:::coralnexus/puppet-drupal[c1c0ec35e40f11fd4a75ad7841846549b5eb8e5c]"              
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "drupal": "github:::coralnexus/puppet-drupal"              
+                }
+              }
             }
           },
           "percona_server": {
-            "modules": {
-              "percona": "github:::coralnexus/puppet-percona"
+            "environment": {
+              "production": {
+                "modules": {
+                  "percona": "github:::coralnexus/puppet-percona[9463414a03327ffe40e2de6f7a2d7fc406fa0f47]"
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "percona": "github:::coralnexus/puppet-percona"
+                }
+              }
             }
           },
           "varnish_server": {
-            "modules": {
-              "varnish": "github:::coralnexus/puppet-varnish[custom_vcl_fix]",
-              "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal"
+            "environment": {
+              "production": {
+                "modules": {
+                  "varnish": "github:::maxchk/puppet-varnish[30441f7e7c096fce1802f44d29d048d04155877b]",
+                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal[35e87040fab4898fad4cb0f76c9156a4e5dd5eff]"              
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "varnish": "github:::maxchk/puppet-varnish[develop]",
+                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal"              
+                }
+              }
             }
           }
         }

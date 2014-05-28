@@ -1,13 +1,10 @@
 /**
  * Varnish proxy server profile.
  */
-class coralnexus::drupal::profile::varnish_server {
+class coralnexus::portal::profile::varnish_server {
 
   $base_name = 'coralnexus_varnish_server'
   anchor { $base_name: }
-
-  #-----------------------------------------------------------------------------
-  # Properties
 
   #-----------------------------------------------------------------------------
   # Required systems

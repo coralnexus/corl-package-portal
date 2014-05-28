@@ -1,55 +1,34 @@
 /**
  * Apache powered Drupal web server profile.
  */
-class coralnexus::drupal::profile::apache_drupal {
+class coralnexus::portal::profile::apache_drupal {
 
   $base_name = 'coralnexus_apache_drupal'
   anchor { $base_name: }
 
   #-----------------------------------------------------------------------------
-  # Properties
-
-  #-----------------------------------------------------------------------------
   # Required systems
 
-  class { 'apache': require => Anchor[$base_name] }
+  include coralnexus::portal::profile::apache_server
+  include coralnexus::portal::profile::php
 
-  class { 'php': require => Anchor[$base_name] }
-  include php::apache
-  include php::mod::mysql
-
-  class { 'drupal': require => Class['php'] }
-
-  #---
-
-  a2mod { 'php5':
-    require => [ Class['php'], Class['php::apache'] ],
-  }
+  class { 'drupal': require => Class['coralnexus::portal::profile::php'] }
 
   #-----------------------------------------------------------------------------
   # Optional systems
 
-  corl::include { 'apache_drupal_classes':
-    require => A2mod['php5']
-  }
+  corl::include { 'apache_drupal_classes': require => Class['drupal'] }
 
   #-----------------------------------------------------------------------------
   # Resources
 
-  corl_resources('apache::conf', 'apache::conf', 'apache::conf_defaults')
-  corl_resources('apache::module', 'apache::module', 'apache::module_defaults')
-  corl_resources('apache::vhost', 'apache::vhost', 'apache::vhost_defaults')
-
-  corl_resources('php::conf', 'php::conf', 'php::conf_defaults')
-  corl_resources('php::module', 'php::module', 'php::module_defaults')
-
-  corl_resources('coralnexus::drupal::profile::apache_drupal::site', 'drupal::site', 'drupal::site_defaults')
+  corl_resources('coralnexus::portal::profile::apache_drupal::site', 'drupal::site', 'drupal::site_defaults')
 }
 
 #-------------------------------------------------------------------------------
 # Resource definitions
 
-define coralnexus::drupal::profile::apache_drupal::site (
+define coralnexus::portal::profile::apache_drupal::site (
   $domain                   = $name,
   $build_dir                = $drupal::params::build_dir,
   $release_dir              = $drupal::params::release_dir,

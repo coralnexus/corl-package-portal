@@ -1,7 +1,7 @@
 
-class coralnexus::drupal::default::apache {
+class coralnexus::portal::default::apache {
 
-  $web_home = $coralnexus::drupal::default::web_home
+  $web_home = $coralnexus::portal::default::web_home
 
   #---
 

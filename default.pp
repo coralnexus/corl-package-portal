@@ -1,5 +1,5 @@
 
-class coralnexus::drupal::default {
+class coralnexus::portal::default {
 
   $apache_drupal_classes = [
     "php::mod::apc",

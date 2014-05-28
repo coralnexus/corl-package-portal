@@ -1,13 +1,10 @@
 /**
  * Percona database server profile.
  */
-class coralnexus::drupal::profile::percona_server {
+class coralnexus::portal::profile::percona_server {
 
   $base_name = 'coralnexus_percona_server'
   anchor { $base_name: }
-
-  #-----------------------------------------------------------------------------
-  # Properties
 
   #-----------------------------------------------------------------------------
   # Required systems

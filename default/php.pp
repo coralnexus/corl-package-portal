@@ -1,5 +1,5 @@
 
-class coralnexus::drupal::default::php {
+class coralnexus::portal::default::php {
   $service = 'apache'
 
   $xdebug_remote_enable   = 0

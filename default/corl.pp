@@ -1,4 +1,4 @@
 
-class coralnexus::drupal::default::corl {
+class coralnexus::portal::default::corl {
   $gem_names = [ 'compass' ]
 }
