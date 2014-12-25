@@ -9,7 +9,7 @@ class coralnexus::portal::profile::php {
   #-----------------------------------------------------------------------------
   # Required systems
 
-  class { 'php': require => Anchor[$base_name] }
+  class { '::php': require => Anchor[$base_name] }
 
   if defined(Class['apache']) {
     include php::apache
