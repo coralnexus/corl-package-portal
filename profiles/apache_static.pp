@@ -10,7 +10,10 @@ class coralnexus::portal::profile::apache_static {
   # Required systems
 
   include git
-  include coralnexus::portal::profile::apache_server
+  
+  if ! defined('coralnexus::portal::profile::apache_server') {
+  	class { 'coralnexus::portal::profile::apache_server': }
+  }
 
   #-----------------------------------------------------------------------------
   # Optional systems

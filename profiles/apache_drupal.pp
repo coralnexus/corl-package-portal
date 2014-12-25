@@ -9,8 +9,12 @@ class coralnexus::portal::profile::apache_drupal {
   #-----------------------------------------------------------------------------
   # Required systems
 
-  include coralnexus::portal::profile::apache_server
-  include coralnexus::portal::profile::php
+	if ! defined('coralnexus::portal::profile::apache_server') {
+  	class { 'coralnexus::portal::profile::apache_server': }
+  }
+  if ! defined('coralnexus::portal::profile::php') {
+  	class { 'coralnexus::portal::profile::php': }
+  }
 
   class { 'drupal': require => Class['coralnexus::portal::profile::php'] }
 
