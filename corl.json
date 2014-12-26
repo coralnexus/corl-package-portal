@@ -3,7 +3,7 @@
     "package": {
       "environment": {
         "production": {
-          "coralnexus__core": "github:::coralnexus/corl-package-core[9e1ef09e89e4a6332bb25a4947914a693a50af6e]"
+          "coralnexus__core": "github:::coralnexus/corl-package-core[116c7fc302c90647dbe2459927c6ddd9010bba44]"
         },
         "qa": {
           "use": "production"
@@ -39,7 +39,7 @@
             "environment": {
               "production": {
                 "modules": {
-                  "php": "github:::coralnexus/puppet-php[1875d16775ffcebcab56ccd74f0806d1d05116a2]"  
+                  "php": "github:::coralnexus/puppet-php[1875d16775ffcebcab56ccd74f0806d1d05116a2]"
                 }
               },
               "qa": {
@@ -47,7 +47,7 @@
               },
               "default": {
                 "modules": {
-                  "php": "github:::coralnexus/puppet-php"  
+                  "php": "github:::coralnexus/puppet-php"
                 }
               }
             }
@@ -60,7 +60,7 @@
             "environment": {
               "production": {
                 "modules": {
-                  "drupal": "github:::coralnexus/puppet-drupal[c1c0ec35e40f11fd4a75ad7841846549b5eb8e5c]"              
+                  "drupal": "github:::coralnexus/puppet-drupal[c1c0ec35e40f11fd4a75ad7841846549b5eb8e5c]"
                 }
               },
               "qa": {
@@ -68,7 +68,7 @@
               },
               "default": {
                 "modules": {
-                  "drupal": "github:::coralnexus/puppet-drupal"              
+                  "drupal": "github:::coralnexus/puppet-drupal"
                 }
               }
             }
@@ -95,7 +95,7 @@
               "production": {
                 "modules": {
                   "varnish": "github:::maxchk/puppet-varnish[30441f7e7c096fce1802f44d29d048d04155877b]",
-                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal[35e87040fab4898fad4cb0f76c9156a4e5dd5eff]"              
+                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal[35e87040fab4898fad4cb0f76c9156a4e5dd5eff]"
                 }
               },
               "qa": {
@@ -104,7 +104,7 @@
               "default": {
                 "modules": {
                   "varnish": "github:::maxchk/puppet-varnish[develop]",
-                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal"              
+                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal"
                 }
               }
             }
