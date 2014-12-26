@@ -15,7 +15,7 @@ class coralnexus::portal::profile::php {
     include php::apache
 
     a2mod { 'php5':
-      require => [ Class['php'], Class['php::apache'] ],
+      require => Class['php::apache'],
     }
   }
 
@@ -27,7 +27,7 @@ class coralnexus::portal::profile::php {
   if defined(Class['apache']) {
     corl::include { 'php_classes': require => A2mod['php5'] }
   } else {
-    corl::include { 'php_classes': require => Class['php'] }
+    corl::include { 'php_classes': require => Class['::php'] }
   }
 
   #-----------------------------------------------------------------------------
