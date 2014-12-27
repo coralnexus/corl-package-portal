@@ -3,7 +3,7 @@
     "package": {
       "environment": {
         "production": {
-          "coralnexus__core": "github:::coralnexus/corl-package-core[97e0d8fa41911071d2955b3bf3fe300ffa882884]"
+          "coralnexus__core": "github:::coralnexus/corl-package-core[9a8607cdc042356126ebf1679c23768a0f7b8d71]"
         },
         "qa": {
           "use": "production"
