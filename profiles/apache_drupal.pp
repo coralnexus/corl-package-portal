@@ -80,6 +80,7 @@ define coralnexus::portal::profile::apache_drupal::site (
     resources => {
       drupal_dir => {
         path    => "${apache::params::web_home}/drupal",
+        owner   => $git_user,
         ensure  => 'directory',
         require => File['apache_web_home']
       }
