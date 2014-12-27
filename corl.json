@@ -3,7 +3,7 @@
     "package": {
       "environment": {
         "production": {
-          "coralnexus__core": "github:::coralnexus/corl-package-core[9a8607cdc042356126ebf1679c23768a0f7b8d71]"
+          "coralnexus__core": "github:::coralnexus/corl-package-core[5aef2290d42f276ab7f2b3410c9b396ea861e8cc]"
         },
         "qa": {
           "use": "production"
@@ -94,8 +94,8 @@
             "environment": {
               "production": {
                 "modules": {
-                  "varnish": "github:::maxchk/puppet-varnish[30441f7e7c096fce1802f44d29d048d04155877b]",
-                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal[35e87040fab4898fad4cb0f76c9156a4e5dd5eff]"
+                  "varnish": "github:::maxchk/puppet-varnish[b9846d1b35e87a45c98213fddfe71fa0a6f3b31c]",
+                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal[b1f8ecd9be5144d642d7717429a3652234b5f0d9]"
                 }
               },
               "qa": {
