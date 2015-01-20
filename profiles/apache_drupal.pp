@@ -118,7 +118,7 @@ define coralnexus::portal::profile::apache_drupal::site (
     pcre_recursion_limit    => $pcre_recursion_limit,
     ini_settings            => $ini_settings,
     conf                    => $conf,
-    require                 => Corl::File[$name]
+    require                 => Corl::File['drupal_global']
   }
 
   #---
