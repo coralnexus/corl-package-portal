@@ -18,6 +18,19 @@ class coralnexus::portal::profile::apache_drupal {
 
   class { 'drupal': require => Class['coralnexus::portal::profile::php'] }
 
+  #---
+
+  corl::file { 'drupal_global':
+    resources => {
+      drupal_dir => {
+        path    => "${apache::params::web_home}/drupal",
+        owner   => $git::params::user,
+        ensure  => 'directory',
+        require => [ File['apache_web_home'], Class['drupal'] ]
+      }
+    }
+  }
+
   #-----------------------------------------------------------------------------
   # Optional systems
 
@@ -42,7 +55,6 @@ define coralnexus::portal::profile::apache_drupal::site (
   $admin_email              = $drupal::params::admin_email,
   $use_make                 = $drupal::params::use_make,
   $repo_name                = $drupal::params::repo_name,
-  $git_user                 = $git::params::user,
   $source                   = $drupal::params::source,
   $revision                 = $drupal::params::revision,
   $make_file                = $drupal::params::make_file,
@@ -76,26 +88,13 @@ define coralnexus::portal::profile::apache_drupal::site (
 
   #---
 
-  corl::file { $name:
-    resources => {
-      drupal_dir => {
-        path    => "${apache::params::web_home}/drupal",
-        owner   => $git_user,
-        ensure  => 'directory',
-        require => File['apache_web_home']
-      }
-    }
-  }
-
-  #---
-
   drupal::site { $name:
     home_dir                => $drupal_home_dir,
     build_dir               => $build_dir,
     release_dir             => $release_dir,
     domain                  => $domain,
     aliases                 => $aliases,
-    git_user                => $git_user,
+    git_user                => $git::params::user,
     server_group            => $apache::params::group,
     admin_email             => $admin_email,
     use_make                => $use_make,
