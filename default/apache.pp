@@ -12,6 +12,7 @@ class coralnexus::portal::default::apache {
     "env",
     "mime",
     "proxy",
+    "proxy_http",
     "rewrite",
     "ssl",
     "vhost_alias"
