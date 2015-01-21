@@ -11,6 +11,7 @@ class coralnexus::portal::default::apache {
     "deflate",
     "env",
     "mime",
+    "proxy",
     "rewrite",
     "ssl",
     "vhost_alias"
