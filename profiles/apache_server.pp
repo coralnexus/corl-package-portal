@@ -23,4 +23,9 @@ class coralnexus::portal::profile::apache_server {
 
   corl_resources('apache::conf', 'apache::conf', 'apache::conf_defaults')
   corl_resources('apache::module', 'apache::module', 'apache::module_defaults')
+
+  corl_resources('apache::vhost', 'apache::vhost', 'apache::vhost_defaults')
+  corl_resources('apache::vhost::file', 'apache::vhost::file', 'apache::vhost::file_defaults')
+  corl_resources('apache::vhost::proxy', 'apache::vhost::proxy', 'apache::vhost::proxy_defaults')
+  corl_resources('apache::vhost::redirect', 'apache::vhost::redirect', 'apache::vhost::redirect_defaults')
 }
