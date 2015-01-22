@@ -85,6 +85,7 @@ define coralnexus::portal::profile::apache_drupal::site (
 ) {
 
   $drupal_home_dir = "${apache::params::web_home}/drupal/${domain}"
+  $drupal_git_user = global_param('apache_drupal::git_user', $git::params::user)
 
   #---
 
@@ -94,7 +95,7 @@ define coralnexus::portal::profile::apache_drupal::site (
     release_dir             => $release_dir,
     domain                  => $domain,
     aliases                 => $aliases,
-    git_user                => $git::params::user,
+    git_user                => $drupal_git_user,
     server_group            => $apache::params::group,
     admin_email             => $admin_email,
     use_make                => $use_make,
