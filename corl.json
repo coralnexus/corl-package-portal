@@ -22,7 +22,7 @@
             "environment": {
               "production": {
                 "modules": {
-                  "apache": "github:::coralnexus/puppet-apache[9dc62e07eda5d8549aedf1dc9fa670edddd6ea82]"
+                  "apache": "github:::coralnexus/puppet-apache[53ebc27572b02461a3525104f21907633e99a465]"
                 }
               },
               "qa": {
@@ -60,7 +60,7 @@
             "environment": {
               "production": {
                 "modules": {
-                  "drupal": "github:::coralnexus/puppet-drupal[c1c0ec35e40f11fd4a75ad7841846549b5eb8e5c]"
+                  "drupal": "github:::coralnexus/puppet-drupal[52fbdefa2106ce761e3b66afd74f5be190d43141]"
                 }
               },
               "qa": {
