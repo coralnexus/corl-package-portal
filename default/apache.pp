@@ -6,6 +6,7 @@ class coralnexus::portal::default::apache {
   #---
 
   $modules = [
+    "headers",
     "alias",
     "autoindex",
     "deflate",
