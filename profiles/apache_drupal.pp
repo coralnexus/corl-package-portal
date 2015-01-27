@@ -80,6 +80,9 @@ define coralnexus::portal::profile::apache_drupal::site (
   $apache_use_ssl           = $apache::params::use_ssl,
   $apache_ssl_cert          = $apache::params::ssl_cert,
   $apache_ssl_key           = $apache::params::ssl_key,
+  $apache_ssl_chain         = $apache::params::ssl_chain,
+  $apache_ssl_protocol      = $apache::params::ssl_protocol,
+  $apache_ssl_cipher        = $apache::params::ssl_cipher,
   $apache_error_log_level   = $apache::params::error_log_level,
   $apache_rewrite_log_level = $apache::params::rewrite_log_level
 ) {
@@ -137,6 +140,9 @@ define coralnexus::portal::profile::apache_drupal::site (
     use_ssl           => $apache_use_ssl,
     ssl_cert          => $apache_ssl_cert,
     ssl_key           => $apache_ssl_key,
+    ssl_chain         => $apache_ssl_chain,
+    ssl_protocol      => $apache_ssl_protocol,
+    ssl_cipher        => $apache_ssl_cipher,
     error_log_level   => $apache_error_log_level,
     rewrite_log_level => $apache_rewrite_log_level,
     require           => [ A2mod['php5'], Drupal::Site[$name] ],
