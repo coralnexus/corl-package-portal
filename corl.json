@@ -1,14 +1,16 @@
 {
-  "package": {
-    "environment": {
-      "production": {
-        "coralnexus__core": "github:::coralnexus/corl-package-core[923807f763d5c01421d3dec401f1c594b9464717]"
-      },
-      "qa": {
-        "use": "production"
-      },
-      "default": {
-        "coralnexus__core": "github:::coralnexus/corl-package-core"
+  "builders": {
+    "package": {
+      "environment": {
+        "production": {
+          "coralnexus__core": "github:::coralnexus/corl-package-core[923807f763d5c01421d3dec401f1c594b9464717]"
+        },
+        "qa": {
+          "use": "production"
+        },
+        "default": {
+          "coralnexus__core": "github:::coralnexus/corl-package-core"
+        }
       }
     }
   },
