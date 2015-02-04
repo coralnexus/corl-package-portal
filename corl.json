@@ -1,16 +1,14 @@
 {
-  "builders": {
-    "package": {
-      "environment": {
-        "production": {
-          "coralnexus__core": "github:::coralnexus/corl-package-core[923807f763d5c01421d3dec401f1c594b9464717]"
-        },
-        "qa": {
-          "use": "production"
-        },
-        "default": {
-          "coralnexus__core": "github:::coralnexus/corl-package-core"
-        }
+  "package": {
+    "environment": {
+      "production": {
+        "coralnexus__core": "github:::coralnexus/corl-package-core[923807f763d5c01421d3dec401f1c594b9464717]"
+      },
+      "qa": {
+        "use": "production"
+      },
+      "default": {
+        "coralnexus__core": "github:::coralnexus/corl-package-core"
       }
     }
   },
@@ -69,23 +67,6 @@
               "default": {
                 "modules": {
                   "drupal": "github:::coralnexus/puppet-drupal"
-                }
-              }
-            }
-          },
-          "percona_server": {
-            "environment": {
-              "production": {
-                "modules": {
-                  "percona": "github:::coralnexus/puppet-percona[39af801c684c388f56ff2519d34c0bc6cbbdc92f]"
-                }
-              },
-              "qa": {
-                "use": "production"
-              },
-              "default": {
-                "modules": {
-                  "percona": "github:::coralnexus/puppet-percona"
                 }
               }
             }
